@@ -14,16 +14,25 @@ router.get('/', checkIfSuperUser, async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+  const numberOfServices = 4;
+
   let i = 1;
-  while (i < 8) {
+  while (i < numberOfServices) {
     let serviceToUpdate = await Organisation.where({
       id: i,
     }).fetch({
       require: false,
     });
 
-    let rehabCentreData = req.body[i];
-    console.log(rehabCentreData);
+    let rehabCentreData = {
+      female_capacity: req.body['female_capacity' + i.toString()],
+      female_pending: req.body['female_pending' + i.toString()],
+      female_available: req.body['female_available' + i.toString()],
+      male_capacity: req.body['male_capacity' + i.toString()],
+      male_pending: req.body['male_pending' + i.toString()],
+      male_available: req.body['male_available' + i.toString()],
+      special_remarks: req.body['special_remarks' + i.toString()],
+    };
 
     if (rehabCentreData) {
       serviceToUpdate.set(rehabCentreData);

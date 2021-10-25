@@ -1,6 +1,6 @@
 {{#extends 'base'}}
 
-  {{#block 'title'}}🧠 Check Availability{{/block}}
+  {{#block 'title'}}🧠 Update Availability{{/block}}
 
   {{#block 'content'}}
     <div
@@ -17,43 +17,34 @@
                 class='fas fa-female'
               ></i>
               Female</p>
-            <label
-              class='block text-gray-300 text-sm font-bold mb-1'
-              for={{this.female_capacity}}
-            >
+            <label class='block text-gray-300 text-sm font-bold mb-1'>
               Capacity
             </label>
             <input
               class='shadow appearance-none border rounded mb-4 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-              id={{this.female_capacity}}
+              value={{this.female_capacity}}
               type='number'
-              name={{this.female_capacity}}
+              name='female_capacity{{this.id}}'
               placeholder=''
             />
-            <label
-              class='block text-gray-300 text-sm font-bold mb-1'
-              for={{this.female_pending}}
-            >
+            <label class='block text-gray-300 text-sm font-bold mb-1'>
               Pending
             </label>
             <input
               class='shadow appearance-none border rounded mb-4 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-              id={{this.female_pending}}
+              value={{this.female_pending}}
               type='number'
-              name={{this.female_pending}}
+              name='female_pending{{this.id}}'
               placeholder=''
             />
-            <label
-              class='block text-gray-300 text-sm font-bold mb-1'
-              for={{this.female_available}}
-            >
+            <label class='block text-gray-300 text-sm font-bold mb-1'>
               Available
             </label>
             <input
               class='shadow appearance-none border rounded mb-4 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-              id={{this.female_available}}
+              value={{this.female_available}}
               type='number'
-              name={{this.female_available}}
+              name='female_available{{this.id}}'
               placeholder=''
             />
             <!--Female end-->
@@ -63,43 +54,34 @@
                 class='fas fa-male'
               ></i>
               Male</p>
-            <label
-              class='block text-gray-300 text-sm font-bold mb-1'
-              for={{this.male_capacity}}
-            >
+            <label class='block text-gray-300 text-sm font-bold mb-1'>
               Capacity
             </label>
             <input
               class='shadow appearance-none border rounded mb-4 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-              id={{this.male_capacity}}
+              value={{this.male_capacity}}
               type='number'
-              name={{this.male_capacity}}
+              name='male_capacity{{this.id}}'
               placeholder=''
             />
-            <label
-              class='block text-gray-300 text-sm font-bold mb-1'
-              for={{this.male_pending}}
-            >
+            <label class='block text-gray-300 text-sm font-bold mb-1'>
               Pending
             </label>
             <input
               class='shadow appearance-none border rounded mb-4 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-              id={{this.male_pending}}
+              value={{this.male_pending}}
               type='number'
-              name={{this.male_pending}}
+              name='male_pending{{this.id}}'
               placeholder=''
             />
-            <label
-              class='block text-gray-300 text-sm font-bold mb-1'
-              for={{this.male_available}}
-            >
+            <label class='block text-gray-300 text-sm font-bold mb-1'>
               Available
             </label>
             <input
               class='shadow appearance-none border rounded mb-4 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-              id={{this.male_available}}
+              value={{this.male_available}}
               type='number'
-              name={{this.male_available}}
+              name='male_available{{this.id}}'
               placeholder=''
             />
             <!--Male end-->
@@ -109,14 +91,15 @@
               Special Remarks</p>
             <input
               class='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-              id={{this.special_remarks}}
+              value={{this.special_remarks}}
               type='text'
-              name={{this.special_remarks}}
+              name='special_remarks{{this.id}}'
+              id='special_remarks{{this.id}}'
               placeholder=''
             />
             <p
               class='text-white text-xs text-left italic mb-4 mt-2'
-              id='count'
+              id='count{{this.id}}'
             ></p>
           {{/each}}
         </div>
@@ -132,14 +115,16 @@
 
   {{#block 'js'}}
     <script>
-      let specialRemarks = document.getElementById({{this.special_remarks}});
+      let countChars = (i) => { let specialRemarks =
+      document.getElementById(`special_remarks${i.toString()}`);
       specialRemarks.onkeyup = () => { let maxLength = 800; if
       (specialRemarks.value.length < maxLength) {
-      document.getElementById('count').innerHTML =
+      document.getElementById(`count${i.toString()}`).innerHTML =
       `${specialRemarks.value.length}/800` } else {
-      document.getElementById('count').innerHTML = `<span
+      document.getElementById(`count${i.toString()}`).innerHTML = `<span
       class="text-red-100">${specialRemarks.value.length}/800 You have exceeded
-      the maximum number of characters</span>` } }
+      the maximum number of characters</span>` } } } ; for (let i=1;i<4;i++) {
+      countChars(i) }
     </script>
   {{/block}}
 {{/extends}}
