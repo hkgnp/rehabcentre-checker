@@ -1,10 +1,13 @@
 {{#extends 'base'}}
 
-  {{#block 'title'}} Check Availability {{/block}}
+  {{#block 'title'}} Login {{/block}}
 
   {{#block 'content'}}
 
-    <form method='POST' class='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'>
+    <form
+      method='POST'
+      class='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 col-span-3'
+    >
       <input type='hidden' name='_csrf' value='{{csrfToken}}' />
       <div class='mb-4'>
         <label
@@ -40,7 +43,7 @@
       <div class='flex items-center justify-between'>
         <button
           class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
-          type='button'
+          type='submit'
         >
           Sign In
         </button>

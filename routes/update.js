@@ -38,9 +38,9 @@ router.post('/', async (req, res) => {
         require: false,
       });
 
-      let details = req.body.rehabCentreDetails;
+      let { _csrf, ...rehabCentreData } = req.body;
 
-      serviceToUpdate.set('details', details);
+      serviceToUpdate.set(rehabCentreData);
       serviceToUpdate.set('last_updated', new Date());
       serviceToUpdate.save();
 

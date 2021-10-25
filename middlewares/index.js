@@ -12,7 +12,7 @@ const checkIfLoggedIn = (req, res, next) => {
   } else {
     req.flash(
       'error_messages',
-      'This page is only accessible to registered users who have logged in'
+      'The page you were trying to access is only for registered users who have logged in.'
     );
     res.redirect('/user/login');
   }
@@ -32,7 +32,7 @@ const checkIfSuperUser = (req, res, next) => {
   } else {
     req.flash(
       'error_messages',
-      'This page is only accessible to registered users who have logged in'
+      'The page you were trying to access is only for registered users who have logged in.'
     );
     res.redirect('/user/login');
   }

@@ -20,16 +20,24 @@
   <body>
     {{#if success_messages}}
       {{#each success_messages}}
-        <div class='alert alert-success'>
-          {{this}}
+        <div
+          class='bg-green-100 border border-red-400 text-green-700 px-4 py-3 rounded relative'
+          role='alert'
+        >
+          <strong class='font-bold'>Congrats!</strong>
+          <span class='block sm:inline'>{{this}}</span>
         </div>
       {{/each}}
     {{/if}}
 
     {{#if error_messages}}
       {{#each error_messages}}
-        <div class='alert alert-danger'>
-          {{this}}
+        <div
+          class='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative'
+          role='alert'
+        >
+          <strong class='font-bold'>Holy smokes!</strong>
+          <span class='block sm:inline'>{{this}}</span>
         </div>
       {{/each}}
     {{/if}}
@@ -40,19 +48,37 @@
 
             {{#if_eq user.role_id 1}}
 
-              <a href='/'>Home</a>
-              |
-              <a href='/admin-update'>Admin Update</a>
-              |
-              <a href='/user/logout'>Logout</a>
+              <a
+                href='/'
+                class='font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white mr-3 underline'
+              >Home</a>
+
+              <a
+                href='/admin-update'
+                class='font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white mr-3 underline'
+              >Update</a>
+
+              <a
+                href='/user/logout'
+                class='font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white underline'
+              >Logout</a>
 
             {{else}}
 
-              <a href='/'>Home</a>
-              |
-              <a href='/update'>Update</a>
-              |
-              <a href='/user/logout'>Logout</a>
+              <a
+                href='/'
+                class='font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white mr-3 underline'
+              >Home</a>
+
+              <a
+                href='/update'
+                class='font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white mr-3 underline'
+              >Update</a>
+
+              <a
+                href='/user/logout'
+                class='font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white underline'
+              >Logout</a>
 
             {{/if_eq}}
 
@@ -72,7 +98,8 @@
         </div>
         <div
           class='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6'
-        >{{#block 'content'}}{{/block}}</div>
+        >
+          {{#block 'content'}}{{/block}}</div>
       </section>
     </div>
     {{#block 'js'}}{{/block}}
