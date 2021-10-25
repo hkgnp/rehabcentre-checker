@@ -33,7 +33,7 @@
         </div>
       {{/each}}
     {{/if}}
-    <div class='w-full min-h-full bg-gray-800'>
+    <div class='w-full bg-gray-800 min-h-full'>
       <section class='max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-5'>
         <div class='text-center mb-5 mt-0'>
           {{#if user}}
@@ -57,10 +57,12 @@
             {{/if_eq}}
 
           {{else}}
+
             <a
               href='/'
               class='font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white mr-10 underline'
             >Home</a>
+
             <a
               href='/user/login'
               class='font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white underline'
@@ -68,7 +70,9 @@
 
           {{/if}}
         </div>
-        <div class='flex'>{{#block 'content'}}{{/block}}</div>
+        <div
+          class='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6'
+        >{{#block 'content'}}{{/block}}</div>
       </section>
     </div>
     {{#block 'js'}}{{/block}}
