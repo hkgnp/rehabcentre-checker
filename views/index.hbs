@@ -3,31 +3,62 @@
   {{#block 'title'}} Check Availability {{/block}}
 
   {{#block 'content'}}
-
-    <div class='col mb-3'>
-
-      {{#each rehabCentreDetails}}
-        <div class='row my-3'>
-          <div class='col border-bottom d-flex justify-content-between'>
-            <p class='mr-2 mt-2 mb-0'>{{this.org_name}}</p>
-            <p class='mr-2 mt-2 mb-0'>{{this.org_contact}}</p>
-            <p class='mr-2 mt-2 mb-0'>{{this.female_capacity}}</p>
-            <p class='mr-2 mt-2 mb-0'>{{this.female_pending}}</p>
-            <p class='mr-2 mt-2 mb-0'>{{this.female_available}}</p>
-            <p class='mr-2 mt-2 mb-0'>{{this.male_capacity}}</p>
-            <p class='mr-2 mt-2 mb-0'>{{this.male_pending}}</p>
-            <p class='mr-2 mt-2 mb-0'>{{this.male_available}}</p>
-            <small class='text-muted mt-2 mb-0'><em>{{dateFormat
-                  this.last_updated
-                  format='DD-MM-YYYY'
-                }}</em></small>
+    {{#each rehabCentreDetails}}
+      <div
+        class='w-full bg-gray-900 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center'
+      >
+        <div class='text-center'>
+          <p class='text-xl text-white font-bold mb-2'>{{this.org_name}}</p>
+          <p class='text-base text-gray-400 font-normal'>{{dateFormat
+              this.last_updated
+              format='DD-MM-YYYY'
+            }}</p>
+          <div class='grid grid-cols-3 mt-5'>
+            <div class='pt-7'>
+              <p class='text-base text-gray-400 font-normal'>Total</p>
+              <p class='text-base text-gray-400 font-normal'>Pending</p>
+              <p class='text-base text-gray-400 font-normal'>Available</p>
+            </div>
+            <div>
+              <p class='text-xl text-white font-bold mb-2'><i
+                  class='fas fa-female'
+                ></i></p>
+              <p
+                class='text-base text-white font-normal'
+              >{{this.female_capacity}}</p>
+              <p
+                class='text-base text-white font-normal'
+              >{{this.female_pending}}</p>
+              <p
+                class='text-base text-white font-normal'
+              >{{this.female_available}}</p>
+            </div>
+            <div>
+              <p class='text-xl text-white font-bold mb-2'><i
+                  class='fas fa-male'
+                ></i></p>
+              <p
+                class='text-base text-white font-normal'
+              >{{this.male_capacity}}</p>
+              <p
+                class='text-base text-white font-normal'
+              >{{this.male_pending}}</p>
+              <p
+                class='text-base text-white font-normal'
+              >{{this.male_available}}</p>
+            </div>
           </div>
-          <p class='mt-2 mb-2 lh-base badge bg-dark text-start text-wrap'>
+
+          <p
+            class='mt-3 bg-green-500 rounded-lg p-3 text-base text-white font-normal'
+          >
             {{this.special_remarks}}
           </p>
-        </div>
-      {{/each}}
 
-    </div>
+        </div>
+      </div>
+
+    {{/each}}
+
   {{/block}}
 {{/extends}}
