@@ -34,11 +34,9 @@ router.post('/', async (req, res) => {
       special_remarks: req.body['special_remarks' + i.toString()],
     };
 
-    if (rehabCentreData) {
-      serviceToUpdate.set(rehabCentreData);
-      serviceToUpdate.set('last_updated', new Date());
-      serviceToUpdate.save();
-    }
+    serviceToUpdate.set(rehabCentreData);
+    serviceToUpdate.set('last_updated', new Date());
+    serviceToUpdate.save();
 
     i++;
   }
