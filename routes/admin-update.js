@@ -22,7 +22,8 @@ router.post('/', async (req, res) => {
       require: false,
     });
 
-    let { _csrf, ...rehabCentreData } = req.body;
+    let rehabCentreData = req.body[i];
+    console.log(rehabCentreData);
 
     if (rehabCentreData) {
       serviceToUpdate.set(rehabCentreData);
