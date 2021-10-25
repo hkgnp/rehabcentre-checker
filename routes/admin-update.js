@@ -14,7 +14,7 @@ router.get('/', checkIfSuperUser, async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  let i = 4;
+  let i = 1;
   while (i < 8) {
     let serviceToUpdate = await Organisation.where({
       id: i,
@@ -22,10 +22,10 @@ router.post('/', async (req, res) => {
       require: false,
     });
 
-    let details = req.body[i];
+    let rehabCentreData = req.body[i];
 
-    if (details) {
-      serviceToUpdate.set('details', details);
+    if (rehabCentreData) {
+      serviceToUpdate.set(rehabCentreData);
       serviceToUpdate.set('last_updated', new Date());
       serviceToUpdate.save();
     }
