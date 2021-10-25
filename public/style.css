@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Istok+Web&display=swap');
+
+body {
+  background-image: linear-gradient(to top left, #ffffff 0%, #fdfdfd 100%);
+  height: 100vh;
+  /* justify-content: center;
+  align-items: center; */
+  font-family: 'Istok Web', sans-serif;
+  font-size: 18px;
+}
+
+a {
+  color: #707070;
+}
+
+.centered {
+  position: fixed;
+  margin: 0;
+  padding: 1rem;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.form-control {
+  border: none;
+  border-bottom: 1px dashed blue;
+  color: blue !important;
+}
+
+.org-card {
+  background-color: #b26e8d !important;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 1rem;
+  border-radius: 15px;
+  margin: 0.5rem;
+}
+
+.org-date {
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

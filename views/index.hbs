@@ -1,0 +1,33 @@
+{{#extends 'base'}}
+
+  {{#block 'title'}} Check Availability {{/block}}
+
+  {{#block 'content'}}
+
+    <div class='col mb-3'>
+
+      {{#each icsDetails}}
+        <div class='row my-3'>
+          <div class='col border-bottom d-flex justify-content-between'>
+            <p class='mr-2 mt-2 mb-0'>{{this.org_name}}</p>
+            <p class='mr-2 mt-2 mb-0'>{{this.org_contact}}</p>
+            <p class='mr-2 mt-2 mb-0'>{{this.female_capacity}}</p>
+            <p class='mr-2 mt-2 mb-0'>{{this.female_pending}}</p>
+            <p class='mr-2 mt-2 mb-0'>{{this.female_available}}</p>
+            <p class='mr-2 mt-2 mb-0'>{{this.male_capacity}}</p>
+            <p class='mr-2 mt-2 mb-0'>{{this.male_pending}}</p>
+            <p class='mr-2 mt-2 mb-0'>{{this.male_available}}</p>
+            <small class='text-muted mt-2 mb-0'><em>{{dateFormat
+                  this.last_updated
+                  format='DD-MM-YYYY'
+                }}</em></small>
+          </div>
+          <p class='mt-2 mb-2 lh-base badge bg-dark text-start text-wrap'>
+            {{this.special_remarks}}
+          </p>
+        </div>
+      {{/each}}
+
+    </div>
+  {{/block}}
+{{/extends}}

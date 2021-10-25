@@ -1,0 +1,35 @@
+{
+  "name": "check-ics",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bookshelf": "^1.2.0",
+    "connect-flash": "^0.1.1",
+    "cors": "^2.8.5",
+    "csurf": "^1.11.0",
+    "db-migrate": "^0.11.12",
+    "db-migrate-mysql": "^2.1.2",
+    "db-migrate-pg": "^1.2.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "handlebars-helpers": "^0.10.0",
+    "hbs": "^4.1.2",
+    "knex": "^0.95.4",
+    "moment-timezone": "^0.5.33",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "pg": "^8.6.0",
+    "wax-on": "^1.2.2"
+  },
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "author": "",
+  "description": ""
+}
