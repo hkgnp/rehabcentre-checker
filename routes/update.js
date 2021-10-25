@@ -38,13 +38,16 @@ router.post('/', async (req, res) => {
         require: false,
       });
 
-      let details = req.body.icsDetails;
+      let details = req.body.rehabCentreDetails;
 
       serviceToUpdate.set('details', details);
       serviceToUpdate.set('last_updated', new Date());
       serviceToUpdate.save();
 
-      req.flash('success_messages', 'ICS details successfully updated!');
+      req.flash(
+        'success_messages',
+        'Rehab Centre details successfully updated!'
+      );
       res.redirect('/');
     } catch (e) {
       console.log(e);

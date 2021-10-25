@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
     i++;
   }
 
-  req.flash('success_messages', 'ICS details successfully updated!');
+  req.flash('success_messages', 'Rehab Centre details successfully updated!');
   res.redirect('/');
 });
 

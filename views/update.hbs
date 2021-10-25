@@ -1,24 +1,26 @@
 {{#extends 'base'}}
 
-{{#block 'title'}} Check Availability {{/block}}
+  {{#block 'title'}} Check Availability {{/block}}
 
-{{#block 'content'}}
-<div class="col">
-  <form method="post">
-    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Earliest Date and Remarks for {{orgName.org_name}}</label>
-      <input
-        type="text"
-        class="form-control"
-        id="text"
-        name="icsDetails"
-        aria-describedby="text"
-        placeholder="Incl date and any special requirements"
-      />
+  {{#block 'content'}}
+    <div class='col'>
+      <form method='post'>
+        <input type='hidden' name='_csrf' value='{{csrfToken}}' />
+        <div class='mb-3'>
+          <label for='exampleInputEmail1' class='form-label'>Earliest Date and
+            Remarks for
+            {{orgName.org_name}}</label>
+          <input
+            type='text'
+            class='form-control'
+            id='text'
+            name='rehabCentreDetails'
+            aria-describedby='text'
+            placeholder='Incl date and any special requirements'
+          />
+        </div>
+        <button type='submit' class='btn btn-primary'>Update</button>
+      </form>
     </div>
-    <button type="submit" class="btn btn-primary">Update</button>
-  </form>
-</div>
-{{/block}}
+  {{/block}}
 {{/extends}}

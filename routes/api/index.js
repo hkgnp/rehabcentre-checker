@@ -3,9 +3,9 @@ const { Organisation } = require('../../models');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-  let icsDetails = await Organisation.fetchAll();
+  let rehabCentreDetails = await Organisation.fetchAll();
 
-  res.send(icsDetails);
+  res.send(rehabCentreDetails);
 });
 
 module.exports = router;
