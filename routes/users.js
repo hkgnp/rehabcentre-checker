@@ -3,6 +3,7 @@ const router = express.Router();
 const crypto = require('crypto');
 
 const { User } = require('../models');
+const { checkIfLoggedIn } = require('../middlewares');
 
 // const getHashedPassword = (password) => {
 //   const sha256 = crypto.createHash('sha256');
@@ -62,6 +63,53 @@ router.get('/logout', (req, res) => {
   req.session.user = null;
   req.flash('success_messages', 'You have been successfully logged out');
   res.redirect('/');
+});
+
+router.get('/change-password', checkIfLoggedIn, async (req, res) => {
+  if (req.session) {
+    const userName = req.session.user.name;
+
+    res.render('change-password', {
+      userName: userName,
+    });
+  }
+});
+
+router.post('/change-password', async (req, res) => {
+  if (req.session) {
+    const userId = req.session.user.id;
+
+    try {
+      let userToUpdate = await User.where({
+        id: userId,
+      }).fetch({
+        require: false,
+      });
+
+      userToUpdate.set('password', req.body.password);
+      userToUpdate.save();
+
+      req.session.user = null;
+      req.flash(
+        'success_messages',
+        'Password successfully changed. Please login again.'
+      );
+      res.redirect('/user/login');
+    } catch (e) {
+      console.log(e);
+      req.flash(
+        'error_messages',
+        'Fatal error. Please contact the system administrator.'
+      );
+      res.redirect('/user/login');
+    }
+  } else {
+    req.flash(
+      'error_messages',
+      'The page you were trying to access is only for registered users who have logged in.'
+    );
+    res.redirect('/user/login');
+  }
 });
 
 module.exports = router;
