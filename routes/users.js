@@ -3,7 +3,6 @@ const router = express.Router();
 const crypto = require('crypto');
 
 const { User } = require('../models');
-const { checkIfLoggedIn } = require('../middlewares');
 
 const getHashedPassword = (password) => {
   const sha256 = crypto.createHash('sha256');
@@ -22,7 +21,7 @@ router.post('/login', async (req, res) => {
     require: false,
   });
 
-  if (user && user.get('password') !== '12345') {
+  if (user && user.get('password') !== PROCESS.ENV.DEFAULT_PASSWORD) {
     if (user.get('password') === getHashedPassword(req.body.password)) {
       req.session.user = {
         id: user.get('id'),
@@ -50,7 +49,7 @@ router.post('/login', async (req, res) => {
       req.flash('error_messages', 'Password is incorrect, please try again');
       res.redirect('/user/login');
     }
-  } else if (user && user.get('password') === '12345') {
+  } else if (user && user.get('password') === PROCESS.ENV.DEFAULT_PASSWORD) {
     req.session.user = {
       id: user.get('id'),
       name: user.get('name'),
