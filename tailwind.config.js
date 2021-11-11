@@ -1,5 +1,8 @@
 module.exports = {
-  purge: [],
+  purge: {
+    enabled: true,
+    content: ['./views/**/*.{vue,js,ts,jsx,tsx}'],
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
@@ -8,4 +11,5 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+  mode: 'jit',
+};
