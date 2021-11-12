@@ -14,10 +14,10 @@ router.get('/', checkIfSuperUser, async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const numberOfServices = 4;
+  const numberOfServices = 1;
 
   let i = 1;
-  while (i < numberOfServices) {
+  while (i <= numberOfServices) {
     let serviceToUpdate = await Organisation.where({
       id: i,
     }).fetch({
@@ -31,6 +31,18 @@ router.post('/', async (req, res) => {
       male_capacity: req.body['male_capacity' + i.toString()],
       male_pending: req.body['male_pending' + i.toString()],
       male_available: req.body['male_available' + i.toString()],
+      special_prog_female_capacity:
+        req.body['special_prog_female_capacity' + i.toString()],
+      special_prog_female_pending:
+        req.body['special_prog_female_pending' + i.toString()],
+      special_prog_female_available:
+        req.body['special_prog_female_available' + i.toString()],
+      special_prog_male_capacity:
+        req.body['special_prog_male_capacity' + i.toString()],
+      special_prog_male_pending:
+        req.body['special_prog_male_pending' + i.toString()],
+      special_prog_male_available:
+        req.body['special_prog_male_available' + i.toString()],
       special_remarks: req.body['special_remarks' + i.toString()],
     };
 
