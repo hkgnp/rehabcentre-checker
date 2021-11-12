@@ -14,7 +14,7 @@ router.get('/', checkIfSuperUser, async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const numberOfServices = 1;
+  const numberOfServices = 2;
 
   let i = 1;
   while (i <= numberOfServices) {

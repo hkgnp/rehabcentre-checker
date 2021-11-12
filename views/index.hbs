@@ -2,7 +2,13 @@
 
   {{#block 'title'}}🧠 Check Availability {{/block}}
 
+  {{#block 'instructions'}}
+    <p class='text-xl text-gray-300 text-center font-bold mb-4'>Thank you for
+      using this application. Kindly note that updates are usually made every
+      Monday and accurate as of the date reflected.</p>{{/block}}
+
   {{#block 'content'}}
+
     {{#each rehabCentreDetails}}
       <div
         class='mb-5 w-full bg-gray-900 rounded-lg shadow-lg p-12 flex flex-col justify-center items-center'
