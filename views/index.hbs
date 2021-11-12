@@ -65,32 +65,38 @@
                 <p class='text-base text-gray-400 font-normal'>Available</p>
               </div>
               <div>
-                <p class='text-xl text-white font-bold mb-2'><i
-                    class='fas fa-female'
-                  ></i></p>
-                <p
-                  class='text-base text-white font-normal'
-                >{{this.special_prog_female_capacity}}</p>
-                <p
-                  class='text-base text-white font-normal'
-                >{{this.special_prog_female_pending}}</p>
-                <p
-                  class='text-base text-white font-normal'
-                >{{this.special_prog_female_available}}</p>
+                {{#if special_prog_female_capacity}}
+                  <p class='text-xl text-white font-bold mb-2'><i
+                      class='fas fa-female'
+                    ></i></p>
+
+                  <p
+                    class='text-base text-white font-normal'
+                  >{{this.special_prog_female_capacity}}</p>
+                  <p
+                    class='text-base text-white font-normal'
+                  >{{this.special_prog_female_pending}}</p>
+                  <p
+                    class='text-base text-white font-normal'
+                  >{{this.special_prog_female_available}}</p>
+                {{/if}}
               </div>
               <div>
-                <p class='text-xl text-white font-bold mb-2'><i
-                    class='fas fa-male'
-                  ></i></p>
-                <p
-                  class='text-base text-white font-normal'
-                >{{this.special_prog_male_capacity}}</p>
-                <p
-                  class='text-base text-white font-normal'
-                >{{this.special_prog_male_pending}}</p>
-                <p
-                  class='text-base text-white font-normal'
-                >{{this.special_prog_male_available}}</p>
+                {{#if special_prog_male_capacity}}
+                  <p class='text-xl text-white font-bold mb-2'><i
+                      class='fas fa-male'
+                    ></i></p>
+
+                  <p
+                    class='text-base text-white font-normal'
+                  >{{this.special_prog_male_capacity}}</p>
+                  <p
+                    class='text-base text-white font-normal'
+                  >{{this.special_prog_male_pending}}</p>
+                  <p
+                    class='text-base text-white font-normal'
+                  >{{this.special_prog_male_available}}</p>
+                {{/if}}
               </div>
             </div>
           {{/if}}
