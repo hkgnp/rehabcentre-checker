@@ -25,6 +25,13 @@ exports.up = function (db) {
     male_capacity: { type: 'int' },
     male_pending: { type: 'int' },
     male_available: { type: 'int' },
+    special_prog_name: { type: 'string', length: 20 },
+    special_prog_female_capacity: { type: 'int' },
+    special_prog_female_pending: { type: 'int' },
+    special_prog_female_available: { type: 'int' },
+    special_prog_male_capacity: { type: 'int' },
+    special_prog_male_pending: { type: 'int' },
+    special_prog_male_available: { type: 'int' },
     special_remarks: { type: 'string', length: 800 },
     last_updated: { type: 'date' },
   });
